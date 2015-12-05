@@ -7,7 +7,7 @@ Securely delete files and folders for Unix systems
 Uses shred for secure file deleting. 
 You can find more information about shred at http://linux.about.com/library/cmd/blcmdl1_shred.htm
 
-Can recurely delete folders.
+Can recursively delete folders.
 
 You can install shred (for Debian/Ubuntu) using:
 
