@@ -1,0 +1,39 @@
+#!/bin/sh
+#Securely delete files and folders for Unix systems using shred
+
+DeleteDirectory () {
+  echo "Deleting directory: $1"
+  find $1 -iname "*" -type f | xargs shred -fuzv && rm -rfv $1
+  echo "Done"
+  return $?
+}
+
+DeleteFile () {
+  echo "Deleting file $1"
+  shred -fuzv $1
+  echo "Done"
+  return $?
+}
+
+#printing help when no any command line argument avail
+if [ "$#" -eq 0 ]; then
+  echo "Usage: $0 dir|file [dir2|file2] [dir3|file3]"
+  echo "Where:"
+  echo "       dir  - directory name for delete"
+  echo "       file - file to delete"
+  exit 0
+fi
+
+
+#for all command line arguments
+for item in "$@"
+do
+  if [ -d $item ]; then
+    DeleteDirectory $item
+  elif [ -f $item ]; then
+    DeleteFile $item;
+  else
+    echo "unsupported object type";
+    exit 1
+  fi
+done
