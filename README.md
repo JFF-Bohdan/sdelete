@@ -9,7 +9,11 @@ You can find more information about shred at http://linux.about.com/library/cmd/
 
 Can recursively delete folders.
 
-You can install shred (for Debian/Ubuntu) using:
+You can check that your system have shred app by running this command:
+
+$ man shred
+
+If you don't have shred already installed, you can install it (on some system, for example on Debian/Ubuntu) using:
 
 $ sudo apt-get install shred
 
